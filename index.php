@@ -17,15 +17,14 @@
 <body>
     <div class="container">
 
-        <div class="row">
-            <div class=" header col-md-12">
-                <div class="logo">
-                    <img id="logo" src="assets/img/shasha_logo.png" alt="">
-                </div>
-                <div class="ad-top">
-                    <img id="logo" src="assets/img/live.png" alt="">
-                </div>
+        <div class="row header ">
+            <div class="logo col-md-6">
+                <img class="img-fluid" id="logo" src="assets/img/shasha_logo.png" alt="">
             </div>
+            <div class="ad-top col-md-6">
+                <img class="img-fluid" id="ad1" src="assets/img/ad2.png" alt="">
+            </div>
+
         </div>
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12">
@@ -79,7 +78,7 @@
         <div class="row marquee">
             <div class="alert alert-danger alert-dismissible col-md-12" role="alert">
                 <strong>
-                    <marquee direction="right" truespeed = "20">
+                    <marquee direction="right">
                         – الرئيس يصدر توجيهاته بأهمية العمل الحثيث على تطبيق أحكام القانون وملاحقة المخالفين
                         لتدابير الطوارئ
                         &emsp; &emsp; &emsp; &emsp;
@@ -89,11 +88,27 @@
                     </marquee>
             </div>
         </div>
+        <div class="row main-content">
+            <div class="main-news col-md-8">
+                <div class="row">
+                    <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
+                </div>
+                <div class="row">
+                    <img class="col-md-8 feature" src="assets/img/ad2.png" alt="">
+                </div>
+            </div>
+            <div class="suggestions col-md-4">
+                <div class="row">
+                    <img class="col-md-12 live" src="assets/img/live.png" alt="">
+                </div>
+                <div class="row">
+                    <img class="col-md-12 ad2" src="assets/img/ad3.png" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row main-content">
 
-    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

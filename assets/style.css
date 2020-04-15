@@ -1,111 +1,96 @@
-.root {
-    width: 100%;
+html {
     height: 100%;
-    background: url("img/background.png");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    background-attachment: fixed;
-  }
+}
 
-  body{
-
+body {
     background-color: #cbcbcb;
     direction: rtl;
-    width: 100%;
     height: 100%;
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: 700;
     box-sizing: border-box;
-  }
+}
 
-  *{
-
+* {
     user-select: initial !important;
-  }
+}
 
-  .row{
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
 
-    padding: 0px 10px;
-  }
-
-  .header{
-
-    padding: 10px;
+.header {
+    padding: 10px 0;
     display: flex;
     flex-direction: row;
-  }
+}
 
-  .container {
-    
+.container {
     text-align: right;
     height: 100%;
-  }
+    background-color: rgb(236, 235, 235);
+    padding: 0;
+}
 
-  .logo{
-
-
-    width: 30%;
+.logo {
     height: 100%;
     display: flex;
-  }
+}
 
-  .alert{
-
+.alert {
     width: 100%;
-  }
+}
 
-  marquee{
-
+marquee {
+    padding: 0;
     width: 100%;
-  }
-  p{
+}
 
+p {
     width: 100%;
-  }
+}
 
-  .ad-top{
-
-    width: 70%;
-    height: 100%;
-    display: flex;
-  }
-
-  .header{
-
-    height: 15vh;
+.header {
+    width: 100%;
     background: url("img/header-bg.png");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
     background-attachment: fixed;
+}
 
-  }
-
-  nav{
-
+nav {
     color: #333;
     border-bottom: 4px solid #da1c23;
-  }
+}
 
-  ul{
-
+ul {
     padding: 0;
-  }
-  .nav-link {
+}
 
+.nav-link {
     color: #777;
     line-height: 20px;
     font-size: 1.1em;
     padding: 10px;
 }
 
-#logo{
+.ad1 .ad2,
+.ad3,
+.live {
+    position: relative;
+    object-fit: fill;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    height: 90%;
+    min-height: 90%;
+}
 
-  position: relative;
-  top: 10%;
-  object-fit: fill;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+#logo {
+    position: relative;
+    object-fit: fill;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 90%;
 }
