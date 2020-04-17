@@ -7,22 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <title>News Website</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container h-100">
 
-        <div class="row header ">
-            <div class="logo col-md-6">
+        <div class="row header" style="height:15%">
+            <div class="logo col-md-4" >
                 <img class="img-fluid" id="logo" src="assets/img/shasha_logo.png" alt="">
             </div>
-            <div class="ad-top col-md-6">
-                <img class="img-fluid" id="ad1" src="assets/img/ad2.png" alt="">
+            <div class="ad-top col-md-8">
+                <img class="img-fluid w-100" style="height:60%" id="ad1" src="assets/img/ad1.gif" alt="">
             </div>
 
         </div>
@@ -69,7 +66,7 @@
                     </ul>
                     <form class="form-inline mr-auto my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="البحث" aria-label="Search">
-                        <button class="btn btn-danger my-2 my-sm-1" type="submit">hhh
+                        <button class="btn btn-danger my-2 my-sm-1" type="submit">hhh</button>
                     </form>
                 </div>
             </nav>
@@ -93,8 +90,28 @@
                 <div class="row">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
-                <div class="row">
-                    <img class="col-md-8 feature" src="assets/img/ad2.png" alt="">
+                <div class="row left">
+                    <a href="#" class="col-md-8 feature" style="background-image: url('assets/img/feature.jpg')">
+                        <h4 class="feature-title">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</h4>
+                    </a>
+                    <div class="most-recent col-md-4">
+                        <a href="#" class="row recent h-25">
+                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/2.jpeg">
+                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                        </a><hr>
+                        <a href="#" class="row recent h-25">
+                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/3.jpeg">
+                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                        </a><hr>
+                        <a href="#" class="row recent h-25">
+                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/4.jpeg">
+                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                        </a><hr>
+                        <a href="#" class="row recent h-25">
+                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/feature.jpg">
+                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="suggestions col-md-4">
