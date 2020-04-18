@@ -14,16 +14,16 @@
 <body>
     <div class="container h-100">
 
-        <div class="row header" style="height:15%">
-            <div class="logo col-md-4" >
-                <img class="img-fluid" id="logo" src="assets/img/shasha_logo.png" alt="">
+        <div class="row header" style="height:13%">
+            <div class="logo col-md-4 h-100">
+                <img class="img-fluid h-100" id="logo" src="assets/img/shasha_logo.png" alt="">
             </div>
-            <div class="ad-top col-md-8">
-                <img class="img-fluid w-100" style="height:60%" id="ad1" src="assets/img/ad1.gif" alt="">
+            <div class="ad-top col-md-8 h-100 mr-right">
+                <img class="img-fluid ad1" style="padding:10px" id="ad1" src="assets/img/ad2.png" alt="">
             </div>
 
         </div>
-        <div class="row">
+        <div class="row" style="height:fit-content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -72,7 +72,7 @@
             </nav>
         </div>
 
-        <div class="row marquee">
+        <div class="row marquee" style="height:fit-content">
             <div class="alert alert-danger alert-dismissible col-md-12" role="alert">
                 <strong>
                     <marquee direction="right">
@@ -85,12 +85,12 @@
                     </marquee>
             </div>
         </div>
-        <div class="row main-content">
-            <div class="main-news col-md-8">
-                <div class="row">
+        <div class="row main-content h-75">
+            <div class="main-news col-md-8 h-100">
+                <div class="row" style="{height:12.5%; padding:10px}">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
-                <div class="row left">
+                <div class="row left" style="margin:10px 0">
                     <a href="#" class="col-md-8 feature" style="background-image: url('assets/img/feature.jpg')">
                         <h4 class="feature-title">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</h4>
                     </a>
@@ -98,23 +98,50 @@
                         <a href="#" class="row recent h-25">
                             <img class="recent-pic col-md-4 img-fluid" src="assets/img/2.jpeg">
                             <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a><hr>
+                        </a>
+                        <hr>
                         <a href="#" class="row recent h-25">
-                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/3.jpeg">
+                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/3.jpeg">
                             <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a><hr>
+                        </a>
+                        <hr>
                         <a href="#" class="row recent h-25">
-                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/4.jpeg">
+                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/4.jpeg">
                             <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a><hr>
+                        </a>
+                        <hr>
                         <a href="#" class="row recent h-25">
-                        <img class="recent-pic col-md-4 img-fluid" src="assets/img/feature.jpg">
+                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/feature.jpg">
                             <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
                         </a>
                     </div>
                 </div>
+                <div class="row" style="height:12.5%">
+                    <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
+                </div>
+                <div class="row buttom-news" style="height:25%">
+                    <a href="#" class="row recent col-md-3">
+                        <img class="recent-pic img-fluid h-75" src="assets/img/2.jpeg">
+                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                    </a>
+                    <hr>
+                    <a href="#" class="row recent col-md-3">
+                        <img class="recent-pic img-fluid h-75" src="assets/img/3.jpeg">
+                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                    </a>
+                    <hr>
+                    <a href="#" class="row recent col-md-3">
+                        <img class="recent-pic img-fluid h-75" src="assets/img/4.jpeg">
+                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                    </a>
+                    <hr>
+                    <a href="#" class="row recent col-md-3">
+                        <img class="recent-pic img-fluid h-75" src="assets/img/feature.jpg">
+                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
+                    </a>
+                </div>
             </div>
-            <div class="suggestions col-md-4">
+            <div class="suggestions col-md-4 h-100">
                 <div class="row">
                     <img class="col-md-12 live" src="assets/img/live.png" alt="">
                 </div>
