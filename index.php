@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container h-100">
+    <div class="container" style="height:fit-content">
 
         <div class="row header" style="height:13%">
             <div class="logo col-md-4 h-100">
@@ -85,7 +85,7 @@
                     </marquee>
             </div>
         </div>
-        <div class="row main-content h-75">
+        <div class="row main-content" style="fit-content">
             <div class="main-news col-md-8 h-100">
                 <div class="row" style="{height:12.5%; padding:10px}">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
@@ -116,7 +116,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row" style="height:12.5%">
+                <div class="row" style="height:15%">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
                 <div class="row buttom-news" style="height:25%">
