@@ -4,7 +4,7 @@ define('DB_USER','admin');
 define('DB_PASS' ,'admin');
 define('DB_NAME','newsdb');
 
-$con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+$con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
 // Check connection
 if (mysqli_connect_errno())

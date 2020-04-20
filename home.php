@@ -1,7 +1,6 @@
 <?php 
-session_start();
-require_once('includes/config.php');
 
+require_once 'includes/config.php';
 ?>
 
 
@@ -12,11 +11,11 @@ require_once('includes/config.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="assets/style.css">
 
-    <link rel="shortcut icon" href="assets/img/tab-icon" type="image/x-icon"/>
+    <link rel="shortcut icon" href="assets/img/tab-icon" type="image/x-icon" />
 
     <title>Home</title>
 
@@ -41,62 +40,70 @@ require_once('includes/config.php');
             <div class="main-news col-md-8 h-100">
 
                 <?php 
+                    
+                    //Featured news fetching 
+                    $query = "SELECT id, img, title FROM news WHERE feature = '1'";
+                    $result = mysqli_query($con, $query);
+
+                    if (mysqli_num_rows($result) == 1){
+                    $mainFeatured = mysqli_fetch_array($result);
+
+                    }
+                    else{
+                        echo "Can't find featured news!";
+                    }
+
+                    //Latset news fetching 
+                    $query ="SELECT id, img, title FROM news WHERE feature = '0' ORDER BY date DESC LIMIT 8";
+                    $result = mysqli_query($con, $query);
+
+                    if (mysqli_num_rows ($result) >= 1){
+                    $latestNews = mysqli_fetch_array($result);
+                    }
+                    else{
+                        echo "Can't find latest news!";
+                    }
+                    $count = mysqli_num_rows($result);
 
                     
-                
                 ?>
                 <div class="row" style="{height:12.5%; padding:10px}">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
                 <div class="row left" style="margin:10px 0">
-                    <a href="details.php" class="col-md-8 feature" style="background-image: url('assets/img/feature.jpg')">
-                        <h4 class="feature-title">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</h4>
+                    <a href="details.php?<?php echo 'id='.$mainFeatured[0];?>" class="col-md-8 feature"
+                        style="background-image: url('data:image/jpeg;charset=utf8;base64,<?php echo base64_encode($mainFeatured[1]);?>')">
+                        <h4 class="feature-title"><?php echo htmlentities($mainFeatured[2]);?></h4>
                     </a>
+
                     <div class="most-recent col-md-4">
-                        <a href="details.php" class="row recent h-25">
-                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/2.jpeg">
-                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a>
-                        <hr>
-                        <a href="details.php" class="row recent h-25">
-                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/3.jpeg">
-                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a>
-                        <hr>
-                        <a href="details.php" class="row recent h-25">
-                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/4.jpeg">
-                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a>
-                        <hr>
-                        <a href="details.php" class="row recent h-25">
-                            <img class="recent-pic col-md-4 img-fluid" src="assets/img/feature.jpg">
-                            <div class="title col-md-8">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                        </a>
+                    <?php 
+                    while($count>4){
+
+                        echo '<a href="details.php?id='.$latestNews[0].'"'.' class="row recent h-25">';
+                        echo '<img class="recent-pic col-md-4 img-fluid" '.' src="data:image/jpeg;charset=utf8;base64,'.base64_encode($latestNews[1]).'">';
+                        echo '<div class="title col-md-8">'.htmlentities($latestNews[2]).'</div></a><hr>';
+                        $latestNews = mysqli_fetch_array($result);
+                        $count--;
+                    }
+                    
+                    ?>
                     </div>
                 </div>
                 <div class="row" style="height:15%">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
                 <div class="row buttom-news" style="height:25%">
-                    <a href="details.php" class="row recent col-md-3">
-                        <img class="recent-pic img-fluid h-75" src="assets/img/2.jpeg">
-                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                    </a>
-                    <hr>
-                    <a href="details.php" class="row recent col-md-3">
-                        <img class="recent-pic img-fluid h-75" src="assets/img/3.jpeg">
-                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                    </a>
-                    <hr>
-                    <a href="details.php" class="row recent col-md-3">
-                        <img class="recent-pic img-fluid h-75" src="assets/img/4.jpeg">
-                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                    </a>
-                    <hr>
-                    <a href="details.php" class="row recent col-md-3">
-                        <img class="recent-pic img-fluid h-75" src="assets/img/feature.jpg">
-                        <div class="title h-25">إسرائيل تبدأ بتخزين 'العلاج المعجزة' لفيروس كورونا</div>
-                    </a>
+                    <?php 
+                        while($count>0){
+
+                            echo '<a href="details.php?id='.$latestNews[0].'"'.' class="row recent col-md-3">';
+                            echo '<img class="recent-pic img-fluid h-75" '.' src="data:image/jpeg;charset=utf8;base64,'.base64_encode($latestNews[1]).'">';
+                            echo '<div class="title h-25">'.htmlentities($latestNews[2]).'</div></a><hr>';
+                            $latestNews = mysqli_fetch_array($result);
+                            $count--;
+                        }
+                    ?>
                 </div>
             </div>
 
