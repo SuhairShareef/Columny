@@ -50,3 +50,8 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+hr {
+    height: .3em;
+    background: rgba(102, 102, 102, .5);
+}

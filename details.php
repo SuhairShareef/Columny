@@ -49,6 +49,7 @@ require_once('includes/config.php');
                 <div class=" row news-img">
                     <img src="assets/img/74.jpeg" alt="" class="main-img img-fluid">
                 </div>
+                <hr>
                 <div class="row news-date">
                     2020-04-20
                 </div>
