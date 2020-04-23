@@ -17,7 +17,7 @@ if(isset($_POST['login']))
     //Making sure the password is correct
     if ($password == $enteredPassword) {
         $_SESSION['login']=$_POST['username'];
-        //echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+        header('location:home.php');
     } 
     else {
         echo "<script>alert('Wrong Password');</script>";
@@ -25,7 +25,7 @@ if(isset($_POST['login']))
     }
     //if username or email not found in database
     else{
-    echo "<script>alert('User not registered with us');</script>";
+    echo "<script>alert('Wrong email or password !!');</script>";
     }
     
 }
