@@ -7,7 +7,9 @@ if(isset($_POST['login']))
  
     $username = $_POST['username'];
     $enteredPassword = $_POST['password'];
-    
+    $username = htmlspecialchars($username);
+    $enteredPassword = htmlspecialchars($enteredPassword);
+
     $query = mysqli_query($con,"SELECT username, password FROM users WHERE (username='$username')");
     $count = mysqli_fetch_array($query);
     if ($count > 0)
@@ -68,7 +70,6 @@ if(isset($_POST['login']))
                                         Admin Panel
                                     </a>
                                 </h2>
-                                <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                             </div>
                             <div class="account-content">
                                 <form class="form-horizontal" method="post">

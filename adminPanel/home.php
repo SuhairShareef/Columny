@@ -65,23 +65,30 @@ else{
                         </div>
                     </div>
                     <div class="row">
-                        <a href="categories.php">
+                        <a href="categories.php" <?php if($_SESSION['login']!="admin"){echo "diplay = 'none'";}?>>
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                     <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Categories
+                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Categories
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="users.php">
+                        <a href="users.php" <?php if($_SESSION['login']!="admin"){echo "diplay = 'none'";}?>>
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Users</p>
+                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="addNews.php">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="card-box widget-box-one">
+                                    <div class="wigdet-one-content">
+                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Add News</p>
                                     </div>
                                 </div>
                             </div>
