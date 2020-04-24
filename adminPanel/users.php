@@ -87,23 +87,22 @@ header('location:index.php');
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                            $query = "SELECT id, img, title FROM news WHERE feature = '1'";
-                                            $result = mysqli_query($con, $query);
-                                            $query=mysqli_query($con,"Select users.id as id, users.name as name, users.username as username, users.password as password,users.email as email,users.roll as roll from users");
+                                            $query = "Select users.id as id, users.name as name, users.username as username, users.password as password,users.email as email,users.roll as roll from users";
+                                            $result=mysqli_query($con,$query);
                                             $num=1;
-                                            $rowNum=mysqli_num_rows($query);
+                                            $rowNum=mysqli_num_rows($result);
                                             if($rowNum==0)
                                             {
                                             ?>
                                                 <tr>
                                                     <td colspan="7" align="center">
-                                                        <h3 style="color:red">No record found</h3>
+                                                        <h3 style="color:red">No user found</h3>
                                                     </td>
                                                 <tr>
                                                     <?php 
                                                 } else {
 
-                                                while($row=mysqli_fetch_array($query))
+                                                while($row=mysqli_fetch_array($result))
                                                 {
                                                 ?>
                                                 <tr>

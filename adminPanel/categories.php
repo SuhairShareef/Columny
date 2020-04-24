@@ -16,7 +16,7 @@ header('location:index.php');
 
 <head>
 
-    <title>Users</title>
+    <title>categories</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@ header('location:index.php');
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="page-title-box">
-                                <h4 class="page-title">Users</h4>
+                                <h4 class="page-title">Categories</h4>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -57,16 +57,16 @@ header('location:index.php');
                                 <div class="demo-box m-t-20">
                                     <div class="m-b-30">
                                         <a href="addCategory.php">
-                                            <button id="addUser" class="btn btn-primary waves-effect waves-light"
+                                            <button id="addCategory" class="btn btn-primary waves-effect waves-light"
                                                 type="submit" value="add" method="post">Add
                                                 <i class="mdi mdi-plus-circle-outline"></i></button>
                                         </a>
                                         <a href="editCategory.php">
-                                            <button id="editUser" class="btn btn-success waves-effect waves-light"
+                                            <button id="editCategory" class="btn btn-success waves-effect waves-light"
                                                 type="submit" value="edit" method="post">Edit</i></button>
                                         </a>
                                         <a href="deleteCategory.php">
-                                            <button id="deleteUser" class="btn btn-danger waves-effect waves-light"
+                                            <button id="deleteCategory" class="btn btn-danger waves-effect waves-light"
                                                 type="submit" value="delete" method="post">Delete</button>
                                         </a>
                                     </div>
@@ -77,37 +77,31 @@ header('location:index.php');
                                                 <tr>
                                                     <th></th>
                                                     <th>#</th>
-                                                    <th>id</th>
-                                                    <th>Name</th>
-                                                    <th>Username</th>
-                                                    <th>Password</th>
-                                                    <th>email</th>
-                                                    <th>Roll</th>
+                                                    <th>ID</th>
+                                                    <th>Category Name</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                            $query = "SELECT id, img, title FROM news WHERE feature = '1'";
-                                            $result = mysqli_query($con, $query);
-                                            $query=mysqli_query($con,"Select users.id as id, users.name as name, users.username as username, users.password as password,users.email as email,users.roll as roll from users");
+                                            $query = "SELECT categories.id as id, categories.name as name FROM categories";
+                                            $result=mysqli_query($con,$query);
                                             $num=1;
-                                            $rowNum=mysqli_num_rows($query);
+                                            $rowNum=mysqli_num_rows($result);
                                             if($rowNum==0)
                                             {
                                             ?>
                                                 <tr>
                                                     <td colspan="7" align="center">
-                                                        <h3 style="color:red">No record found</h3>
+                                                        <h3 style="color:red">No category found</h3>
                                                     </td>
                                                 <tr>
                                                     <?php 
                                                 } else {
 
-                                                while($row=mysqli_fetch_array($query))
+                                                while($row=mysqli_fetch_array($result))
                                                 {
                                                 ?>
                                                 <tr>
-                                                    <th scope="row"><?php echo htmlentities($num);?></th>
                                                     <td>
                                                         <div class="custom-control custom-radio">
                                                             <input type="radio" class="custom-control-input"
@@ -115,12 +109,9 @@ header('location:index.php');
                                                                 value="<?php echo htmlentities($row['id']);?>">
                                                         </div>
                                                     </td>
+                                                    <td scope="row"><?php echo htmlentities($num);?></td>
                                                     <td><?php echo htmlentities($row['id']);?></td>
                                                     <td><?php echo htmlentities($row['name']);?></td>
-                                                    <td><?php echo htmlentities($row['username']);?></td>
-                                                    <td><?php echo htmlentities($row['password']);?></td>
-                                                    <td><?php echo htmlentities($row['email']);?></td>
-                                                    <td><?php echo htmlentities($row['roll']);?></td>
                                                 </tr>
                                                 <?php $num++;}} ?>
                                             </tbody>
