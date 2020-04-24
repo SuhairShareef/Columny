@@ -25,7 +25,7 @@ else{
     <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    <script src="assets/js/modernizr.min.js"></script>
+    <link href="assets/css/myStyle.css" rel="stylesheet" type="text/css" />
 
 </head>
 
