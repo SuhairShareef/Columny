@@ -2,7 +2,7 @@
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.html" class="logo"><span>ADMIN<span> PANEL</span></span><i class="mdi mdi-layers"></i></a>
+        <a href="home.php" class="logo"><span>ADMIN<span> PANEL</span></span><i class="mdi mdi-layers"></i></a>
     </div>
 
     <!-- Button mobile view to collapse sidebar menu -->
@@ -23,7 +23,8 @@
                 <li class="dropdown user-box">
                     <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown"
                         aria-expanded="true">
-                        <img src="assets/images/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                        <img src="http://clipart-library.com/images/kTKo7BB8c.png" alt="user-img"
+                            class="img-circle user-img">
                     </a>
                     <ul
                         class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">

@@ -16,7 +16,6 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Home</title>
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
 
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -26,21 +25,15 @@ else{
     <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
     <script src="assets/js/modernizr.min.js"></script>
 
 </head>
 
 
 <body class="fixed-left">
-
-    <!-- Begin page -->
     <div id="wrapper">
-
-        <!-- Top Bar Start -->
         <div class="topbar">
 
-            <!-- LOGO -->
             <div class="topbar-left">
                 <a href="home.php" class="logo"><span>NP<span>Admin</span></span><i class="mdi mdi-layers"></i></a>
             </div>
@@ -65,25 +58,27 @@ else{
                         </div>
                     </div>
                     <div class="row">
-                        <a href="categories.php" <?php if($_SESSION['login']!="admin"){echo "diplay = 'none'";}?>>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Categories
-                                        </p>
-                                    </div>
+                    <?php 
+                    if($_SESSION['login']=="admin"){echo '<a href="categories.php">
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="card-box widget-box-one">
+                                <div class="wigdet-one-content">
+                                    <p class="m-0 text-uppercase font-600 font-primary text-overflow">Categories
+                                    </p>
                                 </div>
                             </div>
-                        </a>
-                        <a href="users.php" <?php if($_SESSION['login']!="admin"){echo "diplay = 'none'";}?>>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Users</p>
-                                    </div>
+                        </div>
+                    </a>
+                    <a href="users.php">
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="card-box widget-box-one">
+                                <div class="wigdet-one-content">
+                                    <p class="m-0 text-uppercase font-600 font-primary text-overflow">Users</p>
                                 </div>
                             </div>
-                        </a>
+                        </div>
+                    </a>';}
+                    ?>
                         <a href="addNews.php">
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
@@ -107,7 +102,6 @@ else{
         <script src="assets/js/waves.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../plugins/switchery/switchery.min.js"></script>
         
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
