@@ -51,7 +51,7 @@ header('location:index.php');
                             </div>
                         </div>
                     </div>
-                    <form method="post" action>
+                    <form method="post">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="demo-box m-t-20">
