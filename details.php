@@ -2,6 +2,7 @@
 session_start();
 require_once('includes/config.php');
 
+
 ?>
 
 
@@ -36,14 +37,13 @@ require_once('includes/config.php');
         <?php include('includes/urgent.php');?>
 
         <!-- Main Content -->
-        <div class="row main-content" style="fit-content">
+        <div class="row main-content" style="height:fit-content">
 
             <?php 
                 if (!isset($_GET['id'])){
-                    header("location:index.php");
+                    header("location:home.php");
                 }
                 $id = $_GET['id'];
-                
                 $query = "SELECT title, img, date, content FROM news WHERE id = $id";
                 
                 $result = mysqli_query($con, $query);
@@ -58,7 +58,7 @@ require_once('includes/config.php');
             ?>
 
             <!-- Home Page -->
-            <div class="details main-news  col-md-8 h-100">
+            <div class="details main-news col-md-8" style="height:fit-content">
                 <div class="row" style="{height:12.5%; padding:10px}">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
@@ -75,13 +75,57 @@ require_once('includes/config.php');
                 <div class="row news-content">
                     <?php echo $thisNews[3];?>
                 </div>
-            </div>
+                <div class="row comment-form">
+                    <!---Comment Section --->
+                    <div class="col-md-12">
+                        <div class="card my-4">
+                            <h5 class="card-header">اترك تعليقك: </h5>
+                            <div class="card-body">
+                                <form name="Comment" method="post" action="commentAdd.php">
+                                    <input type="hidden" name="id" value="<?php echo $_GET['id'];?>" />
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control"
+                                            placeholder="أدخل اسمك الكامل" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control"
+                                            placeholder="أدخل بريدك الالكتروني" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="content" rows="3" placeholder="اكتب..."
+                                            required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" name="submit">موافق</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row comment-section-view">
+                    <?php 
+                    $id = $_GET['id'];
+                    $query = "SELECT name, content, date FROM comments WHERE newsId = $id";
+                    $result = mysqli_query($con, $query);
 
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <div class="media col-md-12 ">
+                        <img class="d-flex w-100 col-md-2 rounded-circle user-img" src="assets/img/usericon.png" alt="">
+                        <div class="col-md-10 media-body">
+                            <div class="name"><?php echo htmlentities($row['name']);?></div>
+                            <div class="date"><?php echo htmlentities($row['date']);?></div>
+                            <div class="content"><?php echo htmlentities($row['content']);?></div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
             <!-- SideNav -->
             <?php include('includes/sidenav.php');?>
-
         </div>
     </div>
+    </div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -55,3 +55,44 @@ hr {
     height: .3em;
     background: rgba(102, 102, 102, .5);
 }
+
+.media-body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: right;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.name {
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.user-img {
+    margin-left: 1rem!important;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.date {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.content {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
