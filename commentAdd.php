@@ -14,6 +14,8 @@ if(isset($_POST['submit']))
         $result = mysqli_query($con,$query);
 
         if($result)
+            $query = "UPDATE news SET comments = comments + 1 WHERE id = $newsId";
+            $result = mysqli_query($con, $query);
             echo "<script>alert('comment successfully added !');</script>";
 
         else
