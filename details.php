@@ -1,7 +1,15 @@
 <?php 
 session_start();
 require_once('includes/config.php');
+if (!isset($_GET['id']) OR !is_int($_GET['id'])){
+    header("location:home.php");
+}
 
+$id = $_GET['id'];
+
+// Update num of views
+$query = "UPDATE news SET views = views + 1 WHERE id = $id";
+$result = mysqli_query($con, $query);
 
 ?>
 
@@ -40,9 +48,7 @@ require_once('includes/config.php');
         <div class="row main-content" style="height:fit-content">
 
             <?php 
-                if (!isset($_GET['id'])){
-                    header("location:home.php");
-                }
+                
                 $id = $_GET['id'];
                 $query = "SELECT title, img, date, content FROM news WHERE id = $id";
                 
