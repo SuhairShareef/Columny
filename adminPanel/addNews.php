@@ -1,11 +1,14 @@
 <?php
 session_start();
 include('includes/config.php');
-if(strlen($_SESSION['login'])==0)
+$user_roll = htmlspecialchars($_SESSION['user_roll']);
+if((strlen($_SESSION['login']) == 0))
 { 
-header('location:index.php');
+    header('location:index.php');
 }
-    
+elseif ($user_roll =='editor'){ 
+    header('location:home.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +55,7 @@ header('location:index.php');
                         <div class="col-md-10 col-md-offset-1">
                             <div class="p-6">
                                 <div class="">
-                                    <form action="addNewNews.php" name="addnews" method="post" enctype="multipart/form-data">
+                                    <form action="submitNews.php" name="addnews" method="post" enctype="multipart/form-data">
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Title</label>
                                             <input type="text" class="form-control" id="posttitle" name="posttitle"
@@ -78,14 +81,14 @@ header('location:index.php');
                                         </div>
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Author's Name</label>
-                                            <input type="text" class="form-control" id="posttitle" name="posttitle"
+                                            <input type="text" class="form-control" id="posttitle" name="title"
                                                 placeholder="Enter name" required>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="card-box">
                                                     <h4 class="m-b-30 m-t-0 header-title"><b>Content</b></h4>
-                                                    <textarea class="summernote" name="postdescription"
+                                                    <textarea class="summernote" name="content"
                                                         required></textarea>
                                                 </div>
                                             </div>
@@ -95,7 +98,7 @@ header('location:index.php');
                                                 <div class="card-box">
                                                     <h4 class="m-b-30 m-t-0 header-title"><b>Image</b></h4>
                                                     <input type="file" class="form-control" id="postimage"
-                                                        name="postimage" required>
+                                                        name="image" required>
                                                 </div>
                                             </div>
                                         </div>
