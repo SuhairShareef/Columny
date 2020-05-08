@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require_once('includes/config.php');
-if (!isset($_GET['id']) OR !is_int($_GET['id'])){
+require_once 'includes/config.php';
+if (!isset($_GET['id'])){
     header("location:home.php");
 }
 
@@ -53,11 +53,12 @@ $result = mysqli_query($con, $query);
                 $query = "SELECT title, img, date, content FROM news WHERE id = $id";
                 
                 $result = mysqli_query($con, $query);
-                if(mysqli_num_rows($result)==1){
+                if (mysqli_num_rows($result) == 1) {
                 
                 $thisNews = mysqli_fetch_array($result);
                 }
-                else{
+
+                else {
                     echo "Can't find article";
                     die();
                 }
@@ -72,7 +73,7 @@ $result = mysqli_query($con, $query);
                     <?php echo $thisNews[0];?>
                 </div>
                 <div class=" row news-img">
-                    <?php echo '<img src="'."data:image/jpeg;charset=utf8;base64,".base64_encode($thisNews[1]).'"'.'class="main-img img-fluid">';?>
+                    <?php echo '<img src="'.$thisNews[1].'"'.'class="main-img img-fluid">';?>
                 </div>
                 <hr>
                 <div class="row news-date">
