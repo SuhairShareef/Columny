@@ -55,11 +55,11 @@ elseif ($user_roll =='editor'){
                         <div class="col-md-10 col-md-offset-1">
                             <div class="p-6">
                                 <div class="">
-                                    <form action="submitNews.php" name="addnews" method="post" enctype="multipart/form-data">
+                                    <form action="submitNews.php" method="POST" enctype="multipart/form-data">
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Title</label>
-                                            <input type="text" class="form-control" id="posttitle" name="posttitle"
-                                                placeholder="Enter title" required>
+                                            <input type="text" class="form-control" id="title" name="title"
+                                                placeholder="Enter title" required maxlength="50">
                                         </div>
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Category</label>
@@ -67,21 +67,21 @@ elseif ($user_roll =='editor'){
                                                 onChange="getSubCat(this.value);" required>
                                                 <option value="">Category </option>
                                                 <?php
-                                                // Feching active categories
+                                                //Fetching categories
                                                 $query = "SELECT * FROM categories";
                                                 $result = mysqli_query($con,$query);
 
                                                 while ($category = mysqli_fetch_array($result))
                                                 {    
                                                 ?>
-                                                <option value = "<?php echo htmlentities($category['id']);?>">
+                                                <option value = "<?php echo htmlentities($category['name']);?>">
                                                     <?php echo htmlentities($category['name']);?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Author's Name</label>
-                                            <input type="text" class="form-control" id="posttitle" name="title"
+                                            <input type="text" class="form-control" id="author" name="author"
                                                 placeholder="Enter name" required>
                                         </div>
                                         <div class="row">
@@ -89,7 +89,7 @@ elseif ($user_roll =='editor'){
                                                 <div class="card-box">
                                                     <h4 class="m-b-30 m-t-0 header-title"><b>Content</b></h4>
                                                     <textarea class="summernote" name="content"
-                                                        required></textarea>
+                                                        required maxlength="40000"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,8 +97,8 @@ elseif ($user_roll =='editor'){
                                             <div class="col-sm-12">
                                                 <div class="card-box">
                                                     <h4 class="m-b-30 m-t-0 header-title"><b>Image</b></h4>
-                                                    <input type="file" class="form-control" id="postimage"
-                                                        name="image" required>
+                                                    <input type="file" class="form-control" id="newsImage"
+                                                        name="newsImage" required>
                                                 </div>
                                             </div>
                                         </div>
