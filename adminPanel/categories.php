@@ -17,14 +17,14 @@ header('location:index.php');
 <head>
 
     <title>categories</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/core.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/components.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/pages.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/menu.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/myStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/myStyle.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -57,17 +57,9 @@ header('location:index.php');
                                 <div class="demo-box m-t-20">
                                     <div class="m-b-30">
                                         <a href="addCategory.php">
-                                            <button id="addCategory" class="btn btn-primary waves-effect waves-light"
-                                                type="submit" value="add" method="post">Add
+                                            <button id="addCategory"
+                                                class="btn btn-success waves-effect waves-light">Add
                                                 <i class="mdi mdi-plus-circle-outline"></i></button>
-                                        </a>
-                                        <a href="editCategory.php">
-                                            <button id="editCategory" class="btn btn-success waves-effect waves-light"
-                                                type="submit" value="edit" method="post">Edit</i></button>
-                                        </a>
-                                        <a href="deleteCategory.php">
-                                            <button id="deleteCategory" class="btn btn-danger waves-effect waves-light"
-                                                type="submit" value="delete" method="post">Delete</button>
                                         </a>
                                     </div>
 
@@ -75,19 +67,19 @@ header('location:index.php');
                                         <table class="table m-0 table-colored-bordered table-bordered-primary">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
                                                     <th>#</th>
                                                     <th>ID</th>
                                                     <th>Category Name</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php 
                                             $query = "SELECT categories.id as id, categories.name as name FROM categories";
-                                            $result=mysqli_query($con,$query);
-                                            $num=1;
-                                            $rowNum=mysqli_num_rows($result);
-                                            if($rowNum==0)
+                                            $result = mysqli_query($con,$query);
+                                            $num = 1;
+                                            $rowNum = mysqli_num_rows($result);
+                                            if($rowNum == 0)
                                             {
                                             ?>
                                                 <tr>
@@ -98,20 +90,20 @@ header('location:index.php');
                                                     <?php 
                                                 } else {
 
-                                                while($row=mysqli_fetch_array($result))
+                                                while($row = mysqli_fetch_array($result))
                                                 {
                                                 ?>
                                                 <tr>
-                                                    <td>
-                                                        <div class="custom-control custom-radio">
-                                                            <input type="radio" class="custom-control-input"
-                                                                id="checkedItem" name="defaultExampleRadios"
-                                                                value="<?php echo htmlentities($row['id']);?>">
-                                                        </div>
-                                                    </td>
                                                     <td scope="row"><?php echo htmlentities($num);?></td>
                                                     <td><?php echo htmlentities($row['id']);?></td>
                                                     <td><?php echo htmlentities($row['name']);?></td>
+                                                    <td><a
+                                                            href="edit-category.php?cid=<?php echo htmlentities($row['id']);?>"><i
+                                                                class="fa fa-pencil" style="color: #29b6f6;"></i></a>
+                                                        &nbsp;<a
+                                                            href="manage-categories.php?rid=<?php echo htmlentities($row['id']);?>&&action=del">
+                                                            <i class="fa fa-trash-o" style="color: #f05050"></i></a>
+                                                    </td>
                                                 </tr>
                                                 <?php $num++;}} ?>
                                             </tbody>
