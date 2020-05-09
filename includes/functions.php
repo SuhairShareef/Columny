@@ -9,9 +9,8 @@ function createThumbs( $pathToImages, $pathToThumbs, $thumbWidth )
     // parse path for the extension
     $info = pathinfo($pathToImages . $fname);
     // continue only if this is a JPEG image
-    
-    if ( strtolower($info['extension']) == 'jpg' )
-    {
+    echo $info['extension'];
+    if (strtolower($info['extension']) == 'jpg') {
       echo "Creating thumbnail for {$fname} <br />";
 
       // load image and get image size

@@ -10,7 +10,7 @@ if(isset($_POST['login']))
     $username = htmlspecialchars($username);
     $enteredPassword = htmlspecialchars($enteredPassword);
 
-    $query = mysqli_query($con,"SELECT id, username, password, roll FROM users WHERE (username='$username')");
+    $query = mysqli_query($con,"SELECT id, username, password, name, roll FROM users WHERE (username='$username')");
     $count = mysqli_fetch_array($query);
     if ($count > 0)
     {
@@ -18,6 +18,7 @@ if(isset($_POST['login']))
     $_SESSION['user_id'] = $count['id'];
     $_SESSION['username'] = $count['username'];
     $_SESSION['user_roll'] = $count['roll'];
+    $_SESSION['name'] = $count['name'];
 
     //Making sure the password is correct
     if ($password == $enteredPassword) {
