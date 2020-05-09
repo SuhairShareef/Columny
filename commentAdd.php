@@ -13,11 +13,12 @@ if(isset($_POST['submit']))
         $query = "INSERT INTO comments(newsId,name,email,content,date) VALUES('$newsId','$name','$email','$content',NOW())";
         $result = mysqli_query($con,$query);
 
-        if($result)
+        if ($result) {
             $query = "UPDATE news SET comments = comments + 1 WHERE id = $newsId";
             $result = mysqli_query($con, $query);
             echo "<script>alert('comment successfully added !');</script>";
-
+        }
+        
         else
             echo "<script>alert('Something went wrong. Please try again.');</script>";  
           
