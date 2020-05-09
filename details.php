@@ -25,6 +25,7 @@ $result = mysqli_query($con, $query);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="assets/style.css">
     <link type="text/css" rel="stylesheet" href="assets/details.css">
+    <link type="text/css" rel="stylesheet" href="assets/includesStyle.css">
 
     <link rel="shortcut icon" href="assets/img/tab-icon" type="image/x-icon" />
 
