@@ -98,14 +98,16 @@ header('location:index.php');
                                                     <td><?php echo htmlentities($row['id']);?></td>
                                                     <td><?php echo htmlentities($row['name']);?></td>
                                                     <td><a
-                                                            href="edit-category.php?cid=<?php echo htmlentities($row['id']);?>"><i
+                                                            href="editCategory.php?catId=<?php echo htmlentities($row['id']);?>"><i
                                                                 class="fa fa-pencil" style="color: #29b6f6;"></i></a>
                                                         &nbsp;<a
-                                                            href="manage-categories.php?rid=<?php echo htmlentities($row['id']);?>&&action=del">
+                                                            href="deleteCategory.php?catId=<?php echo htmlentities($row['id']);?>&&action=del">
                                                             <i class="fa fa-trash-o" style="color: #f05050"></i></a>
                                                     </td>
                                                 </tr>
-                                                <?php $num++;}} ?>
+                                                <?php 
+                                                $num++;}} 
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
