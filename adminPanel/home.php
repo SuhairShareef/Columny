@@ -59,35 +59,16 @@ else{
                     </div>
                     <div class="row">
                     <?php 
-                    if($_SESSION['login']=="admin"){echo '<a href="categories.php">
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="card-box widget-box-one">
-                                <div class="wigdet-one-content">
-                                    <p class="m-0 text-uppercase font-600 font-primary text-overflow">Categories
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="users.php">
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="card-box widget-box-one">
-                                <div class="wigdet-one-content">
-                                    <p class="m-0 text-uppercase font-600 font-primary text-overflow">Users</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>';}
+                        
+                        if ($_SESSION['user_roll'] == "admin")
+                            include('homeViews/adminView.php');
+                        
+                        else if ($_SESSION['user_roll'] == "editor")
+                        include('homeViews/editorView.php');
+                        
+                        else if ($_SESSION['user_roll'] == "author")
+                        include('homeViews/authorView.php');
                     ?>
-                        <a href="addNews.php">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-primary text-overflow">Add News</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -102,7 +83,7 @@ else{
         <script src="assets/js/waves.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
-        
+
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
