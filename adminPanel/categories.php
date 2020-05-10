@@ -17,6 +17,8 @@ header('location:index.php');
 <head>
 
     <title>categories</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -25,6 +27,7 @@ header('location:index.php');
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/myStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/deleteCategory.css">
 
 </head>
 
@@ -88,8 +91,9 @@ header('location:index.php');
                                                     </td>
                                                 <tr>
                                                     <?php 
-                                                } else {
+                                                } 
 
+                                                else {
                                                 while($row = mysqli_fetch_array($result))
                                                 {
                                                 ?>
@@ -100,9 +104,35 @@ header('location:index.php');
                                                     <td><a
                                                             href="editCategory.php?catId=<?php echo htmlentities($row['id']);?>"><i
                                                                 class="fa fa-pencil" style="color: #29b6f6;"></i></a>
-                                                        &nbsp;<a
-                                                            href="deleteCategory.php?catId=<?php echo htmlentities($row['id']);?>&&action=del">
+                                                        &nbsp;<a href="#myModal<?php echo htmlentities($row['id']);?>" data-toggle="modal">
                                                             <i class="fa fa-trash-o" style="color: #f05050"></i></a>
+                                                        <!-- Delete Confirmation -->
+                                                        <div id="myModal<?php echo htmlentities($row['id']);?>" class="modal fade">
+                                                            <div class="modal-dialog modal-confirm">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <div class="icon-box">
+                                                                            <i class="material-icons">&#xE5CD;</i>
+                                                                        </div>
+                                                                        <h4 class="modal-title">Are you sure?</h4>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal"
+                                                                            aria-hidden="true">&times;</button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>Are you sure you want to delete this
+                                                                            category?</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-info"
+                                                                            data-dismiss="modal">Cancel</button>
+                                                                            <a href="deleteCategory.php?catId=<?php echo htmlentities($row['id']);?>"><button
+                                                                                type="button"
+                                                                                class="btn btn-danger">Delete</button></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <?php 
