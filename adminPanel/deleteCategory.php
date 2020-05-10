@@ -6,7 +6,6 @@ if (strlen($_SESSION['login']) == 0 || $_SESSION['user_roll'] !== 'admin') {
     header('location:index.php');
 }
 
-
 else {
     if(isset($_GET['catId'])) {
         $categoryId = intval($_GET['catId']);
