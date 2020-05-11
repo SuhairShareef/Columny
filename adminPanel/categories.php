@@ -1,14 +1,14 @@
 <?php
 session_start();
+
 include('includes/config.php');
-if(strlen($_SESSION['login'])==0)
-{ 
-header('location:index.php');
+if (strlen($_SESSION['login']) == 0) { 
+    header('location:index.php');
 }
-elseif($_SESSION['login']!="admin"){
-header('location:index.php');
+
+elseif ($_SESSION['login'] != "admin") {
+    header('location:index.php');
 }
-    
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ header('location:index.php');
 
 <head>
 
-    <title>categories</title>
+    <title>Categories</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -54,7 +54,7 @@ header('location:index.php');
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Add button -->
                     <div class="row">
                         <div class="col-md-12">
