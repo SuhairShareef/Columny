@@ -60,8 +60,8 @@ elseif ($_SESSION['login'] != "admin") {
                         <div class="col-md-12">
                             <div class="demo-box m-t-20">
                                 <div class="m-b-30">
-                                    <a href="addCategory.php">
-                                        <button id="addCategory" class="btn btn-success waves-effect waves-light">Add
+                                    <a href="addUser.php">
+                                        <button id="addUser" class="btn btn-success waves-effect waves-light">Add
                                             <i class="mdi mdi-plus-circle-outline"></i></button>
                                     </a>
                                 </div>
@@ -110,7 +110,7 @@ elseif ($_SESSION['login'] != "admin") {
                                                 <td><?php echo htmlentities($row['email']);?></td>
                                                 <td><?php echo htmlentities($row['roll']);?></td>
                                                 <td><a
-                                                        href="editUser.php?catId=<?php echo htmlentities($row['id']);?>"><i
+                                                        href="editUser.php?userId=<?php echo htmlentities($row['id']);?>"><i
                                                             class="fa fa-pencil" style="color: #29b6f6;"></i></a>
                                                     &nbsp;<a href="#myModal<?php echo htmlentities($row['id']);?>"
                                                         data-toggle="modal">
@@ -137,7 +137,7 @@ elseif ($_SESSION['login'] != "admin") {
                                                                     <button type="button" class="btn btn-info"
                                                                         data-dismiss="modal">Cancel</button>
                                                                     <a
-                                                                        href="deleteUser.php?catId=<?php echo htmlentities($row['id']);?>"><button
+                                                                        href="deleteUser.php?userId=<?php echo htmlentities($row['id']);?>"><button
                                                                             type="button"
                                                                             class="btn btn-danger">Delete</button></a>
                                                                 </div>
