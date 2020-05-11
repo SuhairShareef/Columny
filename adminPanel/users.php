@@ -75,7 +75,6 @@ elseif ($_SESSION['login'] != "admin") {
                                                 <th>id</th>
                                                 <th>Name</th>
                                                 <th>Username</th>
-                                                <th>Password</th>
                                                 <th>email</th>
                                                 <th>Roll</th>
                                                 <th>Action</th>
@@ -83,7 +82,7 @@ elseif ($_SESSION['login'] != "admin") {
                                         </thead>
                                         <tbody>
                                             <?php 
-                                            $query = "SELECT users.id AS id, users.name AS name, users.username AS username, users.password AS password,users.email AS email,users.roll AS roll from users WHERE id!='1'";
+                                            $query = "SELECT users.id AS id, users.name AS name, users.username AS username, users.email AS email,users.roll AS roll from users WHERE id!='1'";
                                             $result = mysqli_query($con,$query);
                                             $num = 1;
                                             $rowNum = mysqli_num_rows($result);
@@ -106,7 +105,6 @@ elseif ($_SESSION['login'] != "admin") {
                                                 <td><?php echo htmlentities($row['id']);?></td>
                                                 <td><?php echo htmlentities($row['name']);?></td>
                                                 <td><?php echo htmlentities($row['username']);?></td>
-                                                <td><?php echo htmlentities($row['password']);?></td>
                                                 <td><?php echo htmlentities($row['email']);?></td>
                                                 <td><?php echo htmlentities($row['roll']);?></td>
                                                 <td><a
