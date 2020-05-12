@@ -71,6 +71,12 @@ if ($_SESSION['user_roll'] == "admin") {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-box">
+                            <div class="m-b-30">
+                                    <a href="addNews.php">
+                                        <button id="addNews" class="btn btn-success waves-effect waves-light">Add
+                                            <i class="mdi mdi-plus-circle-outline"></i></button>
+                                    </a>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-colored table-centered table-inverse m-0">
                                         <thead>
