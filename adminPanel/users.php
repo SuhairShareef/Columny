@@ -6,7 +6,7 @@ if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 }
 
-elseif ($_SESSION['login'] != "admin") {
+elseif ($_SESSION['user_roll'] != "admin") {
     header('location:index.php');
 }
 

@@ -1,4 +1,4 @@
 <li class="has_sub">
-    <a href="approve.php" class="waves-effect"><i class="mdi mdi-marker-check"></i>
-        <span> Approve </span></a>
+    <a href="myNews.php" class="waves-effect"><i class="mdi mdi-pencil-box"></i>
+        <span>My News</span></a>
 </li>
