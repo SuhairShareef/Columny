@@ -13,6 +13,13 @@ if ($_SESSION['user_roll'] == "admin") {
             $query = "DELETE FROM news WHERE id=$id";
             $result = mysqli_query($con,$query);
         }
+        elseif ($_GET['action'] == 'upd') {
+            $id = intval($_GET['id']);
+            $query = "UPDATE news SET feature = '0' WHERE feature = '1'";
+            $result = mysqli_query($con,$query);
+            $query = "UPDATE news SET feature = '1' WHERE id = '$id'";
+            $result = mysqli_query($con,$query);
+        }
     }
 }
 ?>
@@ -71,7 +78,7 @@ if ($_SESSION['user_roll'] == "admin") {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-box">
-                            <div class="m-b-30">
+                                <div class="m-b-30">
                                     <a href="addNews.php">
                                         <button id="addNews" class="btn btn-success waves-effect waves-light">Add
                                             <i class="mdi mdi-plus-circle-outline"></i></button>
@@ -90,6 +97,7 @@ if ($_SESSION['user_roll'] == "admin") {
                                                 <?php
                                                 if ($_SESSION['user_roll'] == "admin") {
                                                     echo "<th>Action</th>";
+                                                    echo "<th>Featured</th>";
                                                 }
                                                 ?>
                                             </tr>
@@ -104,11 +112,11 @@ if ($_SESSION['user_roll'] == "admin") {
 
                                                 if ($rowcount == 0){
                                                 ?>
-                                                <tr>
-                                                    <td colspan="4" align="center">
-                                                        <h3 style="color:red">No news found</h3>
-                                                    </td>
-                                                <tr>
+                                            <tr>
+                                                <td colspan="4" align="center">
+                                                    <h3 style="color:red">No news found</h3>
+                                                </td>
+                                            <tr>
                                                 <?php }
                                                     else {
                                                         while($row = mysqli_fetch_array($result)) {
@@ -128,23 +136,37 @@ if ($_SESSION['user_roll'] == "admin") {
                                                                 $authorName = $row2['name'];
                                                             }          
                                                 ?>
-                                                <tr>
-                                                    <th scope="row"><?php echo htmlentities($count);?></th>
-                                                    <td><b><?php echo htmlentities($row['title']);?></b></td>
-                                                    <td><?php echo htmlentities($row['category'])?></td>
-                                                    <td><?php echo htmlentities($row['date'])?></td>
-                                                    <td><?php echo htmlentities($authorName)?></td>
-                                                    <td><?php echo htmlentities($row['views'])?></td>
-                                                    <?php
-                                                    if ($_SESSION['user_roll'] == "admin") {
-                                                        echo '<td><a href="editNews.php?pid='.htmlentities($row['id']).'"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
-                                                        &nbsp;<a href="AllNews.php?id='.htmlentities($row['id']).'&&action=del" onclick="return confirm('."Do you reaaly want to delete ?".')"><i
-                                                                class="fa fa-trash-o" style="color: #f05050"></i></a></td>';
+                                            <tr>
+                                                <th scope="row"><?php echo htmlentities($count);?></th>
+                                                <td><b><?php echo htmlentities($row['title']);?></b></td>
+                                                <td><?php echo htmlentities($row['category'])?></td>
+                                                <td><?php echo htmlentities($row['date'])?></td>
+                                                <td><?php echo htmlentities($authorName)?></td>
+                                                <td><?php echo htmlentities($row['views'])?></td>
+                                                <?php
+                                                    if ($_SESSION['user_roll'] == "admin") {?>
+                                                <td><a href="editNews.php?pid=<?php htmlentities($row['id'])?>"><i
+                                                            class="fa fa-pencil" style="color: #29b6f6;"></i></a>
+                                                    &nbsp;<a
+                                                        href="AllNews.php?id=<?php htmlentities($row['id'])?>&&action=del"
+                                                        onclick="return confirm('Do you really want to delete ?')"><i
+                                                            class="fa fa-trash-o" style="color: #f05050"></i></a></td>
+                                                
+                                                <?php
+                                                    $ID = $row['id'];
+                                                    $query1 = "SELECT id FROM news WHERE  id = '$ID' AND feature = '0'";
+                                                    $result1 = mysqli_query($con,$query1);
+                                                    $rowcount1 = mysqli_num_rows($result1);
+                                                    if ($rowcount1 != 0) {
+                                                        echo '<td><a href="AllNews.php?id='.htmlentities($row['id']).'&&action=upd"><i class="fa fa-check" style="color: #29b6f6;"></i></a>';
                                                     }
-                                                    ?>
-                                                </tr>
-                                                <?php  $count++;
-                                            } }?>
+                                                    else 
+                                                    echo '<td></td>';
+                                                ?>
+                                               
+                                            </tr>
+                                            <?php  $count++;
+                                            } }}?>
 
                                         </tbody>
                                     </table>
