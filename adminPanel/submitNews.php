@@ -63,6 +63,8 @@ else {
 
                         // Save thumbnail into a file
                         imagejpeg( $tmp_img, "{$imgThumb}" );
+                        $imgDestination = 'assets/img/uploads/'.$newsImageNewName;
+                        $imgThumb = 'assets/img/uploads/thumbnails/'.$newsImageNewName;
 
                         $query = "INSERT INTO news(title, content, img, thumbnail, author_id, date, feature, approve, category) 
                                 VALUES('$title', '$content', '$imgDestination', '$imgThumb', '$author_id', NOW(), '0', '0', '$category')";

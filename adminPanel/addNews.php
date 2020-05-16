@@ -59,7 +59,7 @@ elseif ($user_roll =='editor'){
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Title</label>
                                             <input type="text" class="form-control" id="title" name="title"
-                                                placeholder="Enter title" required maxlength="50">
+                                                placeholder="Enter title" required maxlength="100">
                                         </div>
                                         <div class="form-group m-b-20">
                                             <label for="exampleInputEmail1">Category</label>

@@ -81,6 +81,7 @@ if ($_SESSION['user_roll'] == "admin") {
                                     <table class="table table-colored table-centered table-inverse m-0">
                                         <thead>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Title</th>
                                                 <th>Category</th>
                                                 <th>Date Created</th>
@@ -99,6 +100,7 @@ if ($_SESSION['user_roll'] == "admin") {
                                                 $query = "SELECT id, title, category, date, author_id, views FROM news WHERE approve='1'";
                                                 $result = mysqli_query($con, $query);
                                                 $rowcount = mysqli_num_rows($result);
+                                                $count = 1;
 
                                                 if ($rowcount == 0){
                                                 ?>
@@ -127,6 +129,7 @@ if ($_SESSION['user_roll'] == "admin") {
                                                             }          
                                                 ?>
                                                 <tr>
+                                                    <th scope="row"><?php echo htmlentities($count);?></th>
                                                     <td><b><?php echo htmlentities($row['title']);?></b></td>
                                                     <td><?php echo htmlentities($row['category'])?></td>
                                                     <td><?php echo htmlentities($row['date'])?></td>
@@ -134,13 +137,14 @@ if ($_SESSION['user_roll'] == "admin") {
                                                     <td><?php echo htmlentities($row['views'])?></td>
                                                     <?php
                                                     if ($_SESSION['user_roll'] == "admin") {
-                                                        echo '<td><a href="editNews.php?id='.htmlentities($row['id']).'"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
+                                                        echo '<td><a href="editNews.php?pid='.htmlentities($row['id']).'"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
                                                         &nbsp;<a href="AllNews.php?id='.htmlentities($row['id']).'&&action=del" onclick="return confirm('."Do you reaaly want to delete ?".')"><i
                                                                 class="fa fa-trash-o" style="color: #f05050"></i></a></td>';
                                                     }
                                                     ?>
                                                 </tr>
-                                                <?php } }?>
+                                                <?php  $count++;
+                                            } }?>
 
                                         </tbody>
                                     </table>
