@@ -82,6 +82,7 @@ if (isset($_GET['action'])) {
                                                 $query = "SELECT id, title, category, date, author_id FROM news WHERE approve='0'";
                                                 $result = mysqli_query($con, $query);
                                                 $rowcount = mysqli_num_rows($result);
+                                                $count = 1;
 
                                                 if ($rowcount == 0){
                                                 ?>
@@ -97,7 +98,7 @@ if (isset($_GET['action'])) {
                                                             $query2 = "SELECT name FROM users WHERE id='$authorId'";
                                                             $result2 = mysqli_query($con, $query2);
                                                             $rowcount2 = mysqli_num_rows($result2);
-                                                            $count = 1;
+                                                            
 
                                                             if ($rowcount == 0) {
                                                                 $authorId = 111;

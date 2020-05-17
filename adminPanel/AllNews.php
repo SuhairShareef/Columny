@@ -145,10 +145,10 @@ if ($_SESSION['user_roll'] == "admin") {
                                                 <td><?php echo htmlentities($row['views'])?></td>
                                                 <?php
                                                     if ($_SESSION['user_roll'] == "admin") {?>
-                                                <td><a href="editNews.php?pid=<?php htmlentities($row['id'])?>"><i
+                                                <td><a href="editNews.php?pid=<?php echo htmlentities($row['id']);?>"><i
                                                             class="fa fa-pencil" style="color: #29b6f6;"></i></a>
                                                     &nbsp;<a
-                                                        href="AllNews.php?id=<?php htmlentities($row['id'])?>&&action=del"
+                                                        href="AllNews.php?id=<?php echo htmlentities($row['id']);?>&&action=del"
                                                         onclick="return confirm('Do you really want to delete ?')"><i
                                                             class="fa fa-trash-o" style="color: #f05050"></i></a></td>
                                                 

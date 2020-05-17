@@ -121,10 +121,10 @@ else {
                                                 <td><?php echo htmlentities($row['link'])?></td>
                                                 <td><?php echo htmlentities($row['number_of_clicks'])?></td>
                                                 <td><?php echo htmlentities($row['period_of_view'])?></td>
-                                                <td><a href="editAds.php?id=<?php htmlentities($row['id'])?>"><i
+                                                <td><a href="editAds.php?id=<?php echo htmlentities($row['id']);?>"><i
                                                             class="fa fa-pencil" style="color: #29b6f6;"></i></a>
                                                     &nbsp;<a
-                                                        href="ads.php?id=<?php htmlentities($row['id'])?>&&action=del"
+                                                        href="ads.php?id=<?php echo htmlentities($row['id']);?>&&action=del"
                                                         onclick="return confirm('Do you really want to delete ?')"><i
                                                             class="fa fa-trash-o" style="color: #f05050"></i></a></td>
                                                

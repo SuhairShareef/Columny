@@ -112,8 +112,8 @@ else {
                                 <div class="">
                                     <form name="addpost" method="post">
                                         <div class="form-group m-b-20">
-                                            <label for="exampleInputEmail1">Title</label>
-                                            <input type="text" class="form-control" id="posttitle"
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" id="title"
                                                 value="<?php echo htmlentities($row['title']);?>" name="title"
                                                 placeholder="Enter title" required>
                                         </div>
