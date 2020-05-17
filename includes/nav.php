@@ -23,7 +23,6 @@
                         <a class="nav-link disabled" href="category.php?'.htmlentities($category['id']).'">'.htmlentities($category['name']).'</a></li>';
                         $category = mysqli_fetch_array($result);
                     }
-                
                 }
                 else{
                     echo "Can't find featured news!";

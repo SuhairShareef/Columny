@@ -26,9 +26,10 @@ $result = mysqli_query($con, $query);
     <link type="text/css" rel="stylesheet" href="assets/style.css">
     <link type="text/css" rel="stylesheet" href="assets/details.css">
     <link type="text/css" rel="stylesheet" href="assets/includesStyle.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <link rel="shortcut icon" href="assets/img/tab-icon" type="image/x-icon" />
-
+    <script src="JS/commentAJAX.js"></script>
     <title>Details</title>
 
 </head>

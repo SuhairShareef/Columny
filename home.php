@@ -1,8 +1,6 @@
 <?php 
 require_once 'includes/config.php';
-//require_once 'includes/functions.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +13,27 @@ require_once 'includes/config.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="assets/style.css">
     <link type="text/css" rel="stylesheet" href="assets/includesStyle.css">
-
     <link rel="shortcut icon" href="assets/img/tab-icon" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        (function update() {
+            $.ajax({
+                type: "GET",
+                url: "getAdsTop.php",
+                dataType: "html",
+                success: function(response) {
+                    $("#Top").html(response);
+                },
+                complete: function() {
+                    setTimeout(update, 5000);
+                }
+            });
+        })();
+    });
+    </script>
 
     <title>Home</title>
 
@@ -68,7 +85,7 @@ require_once 'includes/config.php';
 
                     $count = mysqli_num_rows($result);
                 ?>
-                <div class="row" style="{height:12.5%; padding:10px}">
+                <div id="Right" class="row" style="{height:12.5%; padding:10px}">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
                 <div class="row left" style="margin:10px 0">
@@ -78,7 +95,7 @@ require_once 'includes/config.php';
                     </a>
 
                     <div class="most-recent col-md-4">
-                    <?php 
+                        <?php 
                     while ($count > 4) {
 
                         echo '<a href="details.php?id='.$latestNews[0].'"'.' class="row recent h-25">';
@@ -91,7 +108,7 @@ require_once 'includes/config.php';
                     ?>
                     </div>
                 </div>
-                <div class="row" style="height:15%">
+                <div id="Bottom" class="row" style="height:15%">
                     <img class="col-md-12 ad2" src="assets/img/ad2.png" alt="">
                 </div>
                 <div class="row buttom-news" style="height:25%">
@@ -110,7 +127,6 @@ require_once 'includes/config.php';
 
             <!-- SideNav -->
             <?php include('includes/sidenav.php');?>
-
         </div>
     </div>
 

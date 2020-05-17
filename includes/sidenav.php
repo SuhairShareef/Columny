@@ -2,7 +2,7 @@
     <div class="row">
         <img class="col-md-12 live" src="assets/img/live.png" alt="">
     </div>
-    <div class="row">
+    <div id="Left" class="row">
         <img class="col-md-12 ad2" src="assets/img/ad3.png" alt="">
     </div>
     <div class="row most-title">
