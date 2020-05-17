@@ -10,30 +10,24 @@ if (strlen($_SESSION['login']) == 0) {
 
 else {
     if (isset($_POST['update'])){
-        $title = $_POST['title'];
-        $category = $_POST['category'];
-        $articleId = intval($_GET['pid']);
-        $content = $_POST['content'];
+        $owner = $_POST['owner'];
+        $position = $_POST['position'];
+        $link = $_POST['link'];
+        $period = $_POST['period'];
+        $id = intval($_GET['id']);
         
-        //Checking the text size
-        $contentMax = 40000;
-        if (strlen($content) > $contentMax) {
-            echo "<script>alert('The content size is too big!');</script>";
-        }
-        else {
+        $query = "UPDATE ads SET owner = '$owner', position = '$position', link = '$link', period_of_view = '$period' WHERE id='$id'";
+        $result = mysqli_query($con, $query);
 
-            $query = "UPDATE news SET title = '$title', content = '$content', category = '$category', approve = '0' WHERE id='$articleId'";
-            $result = mysqli_query($con, $query);
-
-            if ($result)
-                $msg = "Post updated ";
-            else
-                $error = "Something went wrong . Please try again.";  
+        if ($result)
+            $msg = "Post updated ";
+        else
+            $error = "Something went wrong . Please try again.";  
                 
-        }
-        
     }
+        
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,11 +37,9 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
     <meta name="author" content="Coderthemes">
-
-    <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <!-- App title -->
-    <title>Edit News</title>
+
+    <title>Edit Ads</title>
 
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -57,7 +49,7 @@ else {
     <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    
+
 </head>
 
 
@@ -76,7 +68,7 @@ else {
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="page-title-box">
-                                <h4 class="page-title">Edit Post </h4>
+                                <h4 class="page-title">Edit Advertising </h4>
                                 <ol class="breadcrumb p-0 m-0"></ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -100,8 +92,8 @@ else {
                     </div>
 
                     <?php
-                    $articleId = intval($_GET['pid']);
-                    $query = "SELECT title, content, category, img FROM news WHERE id='$articleId'";
+                    $adId = intval($_GET['id']);
+                    $query = "SELECT owner, position, link, period_of_view FROM ads WHERE id='$adId'";
                     $result = mysqli_query($con, $query);
                     
                     while ($row = mysqli_fetch_array($result)) {
@@ -112,48 +104,51 @@ else {
                                 <div class="">
                                     <form name="addpost" method="post">
                                         <div class="form-group m-b-20">
-                                            <label for="exampleInputEmail1">Title</label>
-                                            <input type="text" class="form-control" id="posttitle"
-                                                value="<?php echo htmlentities($row['title']);?>" name="title"
-                                                placeholder="Enter title" required>
+                                            <label>Owner</label>
+                                            <input type="text" class="form-control" id="owner"
+                                                value="<?php echo htmlentities($row['owner']);?>" name="owner"
+                                                placeholder="Enter owner" required>
                                         </div>
                                         <div class="form-group m-b-20">
-                                            <label for="exampleInputEmail1">Category</label>
-                                            <select class="form-control" name="category" id="category" required>
+                                            <label for="exampleInputEmail1">Position</label>
+                                            <select class="form-control" name="position" id="position" required>
                                                 <option>
                                                     </option>
                                                     <?php
                                                 //Fetching categories
-                                                $query2 = "SELECT * FROM categories";
+                                                $query2 = "SELECT * FROM adsposition";
                                                 $result2 = mysqli_query($con,$query2);
 
-                                                while ($category = mysqli_fetch_array($result2))
+                                                while ($position = mysqli_fetch_array($result2))
                                                 {    
                                                 ?>
-                                                <option value = "<?php echo htmlentities($category['name']);?>">
-                                                    <?php echo htmlentities($category['name']);?></option>
+                                                <option value = "<?php echo htmlentities($position['position']);?>">
+                                                    <?php echo htmlentities($position['position']);?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box">
-                                                    <h4 class="m-b-30 m-t-0 header-title"><b>Content</b></h4>
-                                                    <textarea class="summernote" name="content" maxlength="40000"
-                                                        required><?php echo htmlentities($row['content']);?></textarea>
-                                                </div>
-                                            </div>
+                                        <div class="form-group m-b-20">
+                                            <label>Link</label>
+                                            <input type="text" class="form-control" id="link"
+                                                value="<?php echo htmlentities($row['link']);?>" name="link"
+                                                placeholder="Enter link" required>
                                         </div>
+                                        <div class="form-group m-b-20">
+                                            <label>Period of View</label>
+                                            <select class="form-control" name="period" id="period" required>
+                                                <option value="">Period of View</option>
+                                                <?php
+                                                    $i = 30;
+                                                while ($i < 70 )
+                                                {    
+                                                ?>
+                                                <option value="<?php echo htmlentities($i);?>">
+                                                    <?php echo htmlentities($i);?></option>
 
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box">
-                                                    <h4 class="m-b-30 m-t-0 header-title"><b>Image</b></h4>
-                                                    <img src="../<?php echo htmlentities($row['img']);?>"
-                                                        width="300" />
-                                                </div>
-                                            </div>
+                                                <?php $i = $i + 10;
+                                                } 
+                                                ?>
+                                            </select>
                                         </div>
                                         <?php } ?>
 

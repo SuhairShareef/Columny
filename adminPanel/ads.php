@@ -10,7 +10,7 @@ if ($_SESSION['user_roll'] == "admin") {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'del') {
             $id = intval($_GET['id']);
-            $query = "DELETE FROM news WHERE id=$id";
+            $query = "DELETE FROM ads WHERE id=$id";
             $result = mysqli_query($con,$query);
         }
     }
@@ -121,7 +121,7 @@ else {
                                                 <td><?php echo htmlentities($row['link'])?></td>
                                                 <td><?php echo htmlentities($row['number_of_clicks'])?></td>
                                                 <td><?php echo htmlentities($row['period_of_view'])?></td>
-                                                <td><a href="editAds.php?pid=<?php htmlentities($row['id'])?>"><i
+                                                <td><a href="editAds.php?id=<?php htmlentities($row['id'])?>"><i
                                                             class="fa fa-pencil" style="color: #29b6f6;"></i></a>
                                                     &nbsp;<a
                                                         href="ads.php?id=<?php htmlentities($row['id'])?>&&action=del"
