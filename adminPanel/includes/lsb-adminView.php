@@ -15,3 +15,8 @@
     <a href="AllNews.php" class="waves-effect"><i class="mdi mdi-pencil-box"></i>
         <span> All News </span></a>
 </li>
+
+<li class="has_sub">
+    <a href="ads.php" class="waves-effect"><i class="mdi mdi-tag-outline"></i>
+        <span> Advertising </span></a>
+</li>
