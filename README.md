@@ -1,6 +1,6 @@
 # PHP News Website
 
-A simple News Website based on pure PHP Programming Language. It includes both Admin Panel and the User Inteface. 
+A well structured News Website based on pure PHP Programming Language. Includes both Admin Panel and the User Interface.
 
 ### Languages
 1. PHP 7.4.5
