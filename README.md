@@ -7,7 +7,7 @@ A well structured News Website based on pure PHP Programming Language. Includes 
 2. Javascript
 
 ### Database
-My SQL
+MySQL
 
 ### UI Design
 1. HTML
@@ -20,9 +20,6 @@ My SQL
 2. Opera
 3. Opera GX
 4. Mozilla
-
-### Database Software
-MYSQLite
 
 ### Frameworks
 1. Bootstrap
