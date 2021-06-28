@@ -22,7 +22,7 @@ My SQL
 4. Mozilla
 
 ### Database Software
-WAMP
+MYSQLite
 
 ### Frameworks
 1. Bootstrap
