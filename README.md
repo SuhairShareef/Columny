@@ -1,4 +1,4 @@
-# PHP News Website
+# Columny
 
 A well structured News Website based on pure PHP Programming Language. Includes both Admin Panel and the User Interface.
 
